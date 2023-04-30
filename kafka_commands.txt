@@ -1,0 +1,35 @@
+-----------------------
+java -version
+java-1.8.0-openjdk
+
+navigate to the kafka directory in local machine
+cd kafka_2.12-3.3.1
+
+Start Zoo-keeper:
+-------------------------------
+zookeeper-server-start.bat config\zookeeper.properties
+
+Open another window on terminal to start kafka
+navigate to the kafka directory in local machine
+
+Start Kafka-server:
+----------------------------------------
+cd kafka_2.12-3.3.1
+kafka-server-start.bat config\server.properties
+
+Create the topic:
+-----------------------------
+Duplicate the session & enter in a new console --
+navigate to the kafka directory in local machine
+cd kafka_2.12-3.3.1
+kafka-topics --bootstrap-server 127.0.0.1:9092 --topic user_Topic --create --partitions 1 --replication-factor 1
+
+Start Producer:
+--------------------------
+kafka-console-producer --bootstrap-server 127.0.0.1:9092 --topic user_Topic 
+
+Start Consumer:
+-------------------------
+Duplicate the session & enter in a new console --
+cd kafka_2.12-3.3.1
+kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic user_Topic
